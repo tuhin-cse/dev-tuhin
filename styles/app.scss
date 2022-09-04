@@ -2,20 +2,122 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(230deg, #0F172A, #111A2D);
+    background-size: 400% 400%;
+    color: #f3f4f7;
+
+    -webkit-animation: AnimationName 7s ease infinite;
+    -moz-animation: AnimationName 7s ease infinite;
+    animation: AnimationName 7s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
 
 .container {
     max-width: 1240px;
     margin: 0 auto;
-}
-
-.menu {
-    li {
-        display: inline-block;
-        margin-left: 20px;
+    @media (max-width: 1240px) {
+        padding-left: 14px;
+        padding-right: 14px;
     }
 }
 
+.header {
+    .container {
+       @apply flex justify-between items-center h-[70px];
+        .title {
+            @apply text-xl uppercase font-bold text-primary;
+        }
+        .menu {
+            @apply hidden md:block ;
+
+            &.open {
+                @media (max-width: 765px) {
+                    @apply block absolute top-[60px] bg-gray-700 right-4 w-48 z-30 py-2;
+                }
+            }
+
+            li {
+                @apply md:inline-block ml-6 py-1.5 hover:text-primary;
+                a {
+                    @apply relative;
+                    &.active {
+                        @apply text-primary;
+                    }
+                }
+                a:after {
+                    @apply -bottom-1.5 block h-0.5 bg-primary w-0;
+                    content: "";
+                    left: 50%;
+                    position: absolute;
+                    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                }
+                a:hover:after {
+                    width: 100%;
+                    left: 0;
+                }
+            }
+        }
+    }
+    &.sticky {
+        @apply w-full fixed top-0 border-b border-b-gray-700 shadow z-10 backdrop-blur-xl bg-gray-700 bg-opacity-50 overflow-hidden;
+        animation: sticky-header 500ms;
+    }
+}
+
+@keyframes sticky-header {
+    0%   {height: 0}
+    100% {height: 70px}
+}
+
+.outer-ring {
+    position: absolute;
+    left: calc(50% - 100px);
+    height: 200px;
+    width: 200px;
+    background-image: linear-gradient(135deg, #FEED07 0%, #FE6A50 5%, #ED00AA 15%, #2FE3FE 50%, #8900FF 100%);
+    border-radius: 50%;
+    animation-duration: 2s;
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+}
+
+.inner-ring {
+    @apply bg-center rounded-full absolute;
+    left: calc(50% - 95px);
+    height: 190px;
+    width: 190px;
+    background-image: url("/img/tuhin.jpg");
+    background-size: 200%;
+}
+
+@keyframes rotate {
+    0% {transform:rotate(0deg);}
+    100% {transform:rotate(360deg);}
+}
+
+
 
 .section-title {
-    @apply text-2xl;
+    @apply text-2xl uppercase text-primary font-semibold;
 }
