@@ -26,9 +26,8 @@ const Header = () => {
                 }}/>
                 <ul className="menu">
                     <MenuLink href="/">Home</MenuLink>
-                    <MenuLink href="/#about">About</MenuLink>
-                    <MenuLink>Resume</MenuLink>
-                    <MenuLink>Works</MenuLink>
+                    <MenuLink href="/#skills">Skills</MenuLink>
+                    <MenuLink href="/#works">Works</MenuLink>
                     <MenuLink>Contact</MenuLink>
                 </ul>
             </div>
