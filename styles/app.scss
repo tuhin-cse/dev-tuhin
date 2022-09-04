@@ -74,7 +74,7 @@ body {
     }
 
     &::before {
-        background: gray;
+        @apply bg-gray-700;
         opacity: 0.4;
         animation: drift ease alternate infinite;
     }
@@ -218,6 +218,7 @@ $quantity: 15;
     left: calc(50% - 95px);
     height: 190px;
     width: 190px;
+    background-color: #0F172A;
     background-image: url("/img/tuhin.jpg");
     background-size: 200%;
 }
