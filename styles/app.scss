@@ -187,7 +187,7 @@ $quantity: 15;
     }
 
     &.sticky {
-        @apply w-full fixed top-0 border-b border-b-gray-700 shadow z-10 backdrop-blur-xl bg-gray-700 bg-opacity-50 overflow-hidden;
+        @apply w-full fixed top-0 border-b border-b-gray-700 shadow z-10 backdrop-blur-xl bg-gray-700 bg-opacity-50;
         animation: sticky-header 500ms;
     }
 }
